@@ -1,0 +1,18 @@
+// In CryptoApiService.kt
+package com.example.cryptoapp
+
+import retrofit2.Call
+import retrofit2.http.GET
+
+// Define a data class for the expected API response structure (e.g., Cryptocurrency)
+data class Cryptocurrency(
+    val id: String,
+    val name: String,
+    val symbol: String,
+    val current_price: Double // This field name must match the JSON key
+)
+
+interface CryptoApiService {
+    @GET("path/to/your/prices/endpoint") // Replace with the actual API endpoint
+    fun getPrices(): Call<List<Cryptocurrency>>
+}
